@@ -1,7 +1,7 @@
 require_relative '../../../kata/kata03-data-munging/lib/data_parser'
 require 'rspec'
 
-describe 'data_parser.rb' do
+describe 'testing ability to parse weather.dat' do
 
   it 'should skip headers and footers in file' do
     data = DataParser.parse_weather_data
@@ -24,5 +24,12 @@ describe 'data_parser.rb' do
     last_entity[0].should eq 30
     last_entity[1].should eq 90
     last_entity[2].should eq 45
+  end
+end
+
+describe 'testing ability to parse football.dat' do
+  it 'should parse 20 lines of data' do
+    data = DataParser.parse_football_data
+    data.length.should eq 20
   end
 end
